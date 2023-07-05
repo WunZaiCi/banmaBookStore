@@ -35,6 +35,35 @@ public class BookService {
 	public Book load(String bid) {
 		return bookDao.findByBid(bid);
 	}
+
+	
+	/**
+	 * 删除图书 
+	 * @param bid
+	 */
+	public void delete(String bid) {
+		bookDao.delete(bid);
+		
+	}
+
+	
+	/**添加图书
+	 * 
+	 * @param book
+	 */
+	public void add(Book book) {
+		bookDao.add(book);
+		
+	}
+
+	/**
+	 * 编辑图书
+	 * @param book
+	 */
+	public void edit(Book book) {
+		bookDao.edit(book);
+		
+	}
 	
 
 }

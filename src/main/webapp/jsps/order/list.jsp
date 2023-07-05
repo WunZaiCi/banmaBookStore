@@ -55,7 +55,7 @@
 <h1>我的订单</h1>
 
 <table border="1" width="100%" cellspacing="0" background="black">
-<%--遍历所有的订单 --%>>
+<%--遍历所有的订单 --%>
 <c:forEach items="${orderList }" var="order">
 	<tr bgcolor="gray" bordercolor="gray">
 		<td colspan="6">

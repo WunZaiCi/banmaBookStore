@@ -38,8 +38,8 @@ public class AdminAddBookServlet extends HttpServlet {
 		 * 1. 把表单数据封装到Book对象中
 		 *   * 上传三步
 		 */
-		// 创建工厂
-		DiskFileItemFactory factory = new DiskFileItemFactory(15 * 1024, new File("F:/f/temp"));
+		// 创建工厂  
+		DiskFileItemFactory factory = new DiskFileItemFactory(15 * 1024, new File("E:/f/temp"));
 		// 得到解析器
 		ServletFileUpload sfu = new ServletFileUpload(factory);
 		// 设置单个文件大小为15KB
@@ -48,6 +48,7 @@ public class AdminAddBookServlet extends HttpServlet {
 		try {
 			List<FileItem> fileItemList = sfu.parseRequest(request);
 			/*
+			 * add中有表单项有多个
 			 * * 把fileItemList中的数据封装到Book对象中
 			 *   > 把所有的普通表单字段数据先封装到Map中
 			 *   > 再把map中的数据封装到Book对象中
@@ -63,7 +64,8 @@ public class AdminAddBookServlet extends HttpServlet {
 			// 为book指定bid
 			book.setBid(CommonUtils.uuid());
 			/*
-			 * 需要把Map中的cid封装到Category对象中，再把Category赋给Book
+			 * 因为表单传过来的分类是cid 需要通过cid转换成Category对象中，
+			 * 再把Category赋给Book
 			 */
 			Category category = CommonUtils.toBean(map, Category.class);
 			book.setCategory(category);
@@ -74,7 +76,7 @@ public class AdminAddBookServlet extends HttpServlet {
 			 *   * 保存的文件名称
 			 */
 			// 得到保存的目录
-			String savepath = this.getServletContext().getRealPath("/book_img");
+			String savepath = this.getServletContext(). getRealPath("/book_img");
 			// 得到文件名称：给原来文件名称添加uuid前缀！避免文件名冲突
 			String filename = CommonUtils.uuid() + "_" + fileItemList.get(1).getName();
 			

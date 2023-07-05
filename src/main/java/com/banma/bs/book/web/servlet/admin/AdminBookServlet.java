@@ -46,7 +46,7 @@ public class AdminBookServlet extends BaseServlet {
 		request.setAttribute("book", bookService.load(request.getParameter("bid")));
 		request.setAttribute("categoryList", categoryService.findAll());
 		return "f:/adminjsps/admin/book/desc.jsp";
-	}
+	} 
 	
 	/**
 	 * 查看所有图书
