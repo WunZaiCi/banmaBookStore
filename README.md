@@ -1,2 +1,2 @@
 # banmaBookStore
-a simple BookStore
+A simple BookStore
